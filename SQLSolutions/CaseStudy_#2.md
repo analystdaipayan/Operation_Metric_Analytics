@@ -58,7 +58,7 @@ SELECT *,
             WHEN (action = 'email_open') THEN 'Email Opened'
             ELSE 'Email Sent'
         END AS action_details
-FROM tutorial.yammer_emails)
+FROM yammer_emails)
 
 SELECT
 ROUND((100.0 *SUM(CASE WHEN action_details IN ('Email Clicked') THEN 1 ELSE 0 END)/SUM(CASE WHEN action_details IN ('Email Sent') THEN 1 ELSE 0 END)),2) AS Email_Click_Rate,
@@ -81,14 +81,14 @@ SELECT  Account_Created_Users.user_id, Account_Created_Users.SignUp_Week, Engage
         (Engagement_By_Users.engagement_week - Account_Created_Users.SignUp_Week) AS Retention_Activity
 FROM
 (
-(SELECT DISTINCT(user_id), EXTRACT(week FROM occurred_at) AS SignUp_Week FROM tutorial.yammer_events
+(SELECT DISTINCT(user_id), EXTRACT(week FROM occurred_at) AS SignUp_Week FROM yammer_events
 WHERE event_type = 'signup_flow' 
 AND event_name = 'complete_signup'
 ) AS Account_Created_Users
 LEFT JOIN
 (
 SELECT user_id, DATE(occurred_at) AS Engagement_Date, EXTRACT(week FROM occurred_at) AS Engagement_Week
-FROM tutorial.yammer_events
+FROM yammer_events
 WHERE event_type = 'engagement') Engagement_By_Users
 ON Account_Created_Users.user_id = Engagement_By_Users.user_id
 )
