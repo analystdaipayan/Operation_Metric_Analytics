@@ -58,7 +58,7 @@ Comprises of three tables:
 - ```Persian Language``` Jobs were visited the most in the November month 2020.
 - We have total ```9381 active users``` on the platform.
 - ```Macbook Pro``` have been seen as the highest used device in a single week.
-- We have a ```email clicking rate``` of ```14.79 seconds``` and ```email opening rate``` of ```33.58 Seconds```.
+- We have a ```email clicking rate``` of ```14.79%``` and ```email opening rate``` of ```33.58%```.
 - Our ```Retention rate``` stands at around ```25.78%``` which is a matter of concern and needs to be looked at.
 - The table of the ```Job Data doesn’t have any duplicate rows```.
 
